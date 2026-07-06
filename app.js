@@ -1,7 +1,7 @@
 const APP_BUILD = "FINAL_FIX_V20_2026_07_06";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCemb8B24eO8qEDgt-AcK-2WqqdLGxUeHM",
+    apiKey: "AIzaSyCemb8B24eO8qEDgt-AcK-2WqqdLGxUeHM",
   authDomain: "restaurant-saas-c894e.firebaseapp.com",
   projectId: "restaurant-saas-c894e",
   storageBucket: "restaurant-saas-c894e.firebasestorage.app",
