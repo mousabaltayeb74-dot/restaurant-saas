@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restaurant SaaS</title>
+  <link rel="stylesheet" href="styles.css?v=20" />
+</head>
+<body>
+<header>
+  <div class="brand"><div class="logo">RS</div><div><h1>Restaurant SaaS</h1><p>منصة مطاعم سحابية متعددة المستخدمين</p></div></div>
+  <nav>
+    <button data-page="home">الرئيسية</button>
+    <button data-page="plans">الخطط</button>
+    <button data-page="auth" id="authBtn">دخول / حساب</button>
+    <button id="logoutBtn" class="hide">خروج</button>
+  </nav>
+</header>
+
+<main>
+<section id="home" class="page active hero">
+  <span>Cloud SaaS Project</span>
+  <h2>حوّل مطعمك إلى منصة طلبات أونلاين</h2>
+  <p>كل مطعم ينشئ حسابه الخاص، يدير المنيو والطلبات من لوحة تحكم واحدة، مع حفظ البيانات على Firebase Cloud Firestore.</p>
+  <button data-page="auth">ابدأ الآن</button>
+  <button class="secondary" data-page="dashboard">لوحة التحكم</button>
+  <div class="card"><h3>مطابقة متطلبات الحوسبة السحابية</h3><ul><li>✅ Online Application على GitHub Pages</li><li>✅ Firebase Authentication</li><li>✅ Cloud Firestore Database</li><li>✅ Multi-tenant: بيانات منفصلة لكل مطعم</li><li>✅ Software as a Service SaaS</li></ul></div>
+</section>
+
+<section id="plans" class="page"><h2>خطط الاشتراك</h2><div class="grid"><div class="card"><h3>Free</h3><p>10 أصناف + 20 طلب</p></div><div class="card"><h3>Basic</h3><p>100 صنف + طلبات غير محدودة</p></div><div class="card"><h3>Pro</h3><p>فروع متعددة + تقارير</p></div></div></section>
+
+<section id="auth" class="page">
+  <h2>دخول / إنشاء حساب مطعم</h2>
+  <div class="card form">
+    <input id="restaurantName" placeholder="اسم المطعم / المؤسسة">
+    <input id="email" type="email" placeholder="البريد الإلكتروني">
+    <input id="password" type="password" placeholder="كلمة المرور - 6 أحرف على الأقل">
+    <button id="registerBtn">إنشاء حساب مطعم</button>
+    <button id="loginBtn" class="secondary">تسجيل الدخول</button>
+    <p id="authMsg"></p>
+  </div>
+</section>
+
+<section id="dashboard" class="page">
+  <h2>لوحة تحكم المطعم</h2>
+  <div id="notLogged" class="card"><p>سجل الدخول أولًا حتى تظهر بيانات مطعمك.</p><button data-page="auth">تسجيل الدخول</button></div>
+  <div id="dashContent" class="hide">
+    <div class="stats"><div class="card"><h3 id="rName">مطعمي</h3><p id="rEmail"></p></div><div class="card"><h3 id="menuCount">0</h3><p>أصناف المنيو</p></div><div class="card"><h3 id="ordersCount">0</h3><p>الطلبات</p></div></div>
+    <div class="grid"><div class="card form"><h3>إضافة صنف</h3><input id="itemName" placeholder="اسم الصنف"><input id="itemPrice" type="number" placeholder="السعر"><input id="itemCategory" placeholder="التصنيف"><button id="addItemBtn">حفظ الصنف</button></div><div class="card form"><h3>إضافة طلب تجريبي</h3><input id="customerName" placeholder="اسم العميل"><input id="customerPhone" placeholder="رقم الهاتف"><button id="addOrderBtn">حفظ الطلب</button></div></div>
+    <div class="grid"><div class="card"><h3>المنيو</h3><div id="menuList"></div></div><div class="card"><h3>الطلبات</h3><div id="ordersList"></div></div></div>
+  </div>
+</section>
+</main>
+<footer>Restaurant SaaS © Cloud Computing Project</footer>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+<script src="app.js?v=20"></script>
+</body>
+</html>
