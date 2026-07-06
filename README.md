@@ -1,14 +1,12 @@
-# Restaurant SaaS - Working Firebase Version
+# Restaurant SaaS - Working Firebase Build
 
-مشروع مطعم سحابي SaaS متكامل كبداية عملية:
-- GitHub Pages Hosting
-- Firebase Authentication
-- Cloud Firestore
-- Multi-tenant: كل مطعم بياناته داخل tenants/{uid}
-- Dashboard لإدارة المنيو والطلبات
+مشروع SaaS للمطاعم يعمل بواجهة HTML/CSS/JS مع Firebase Authentication وCloud Firestore.
 
-## ملفات المشروع
+## الملفات
 - index.html
 - styles.css
 - app.js
 - README.md
+
+## التجربة
+افتح الموقع، اضغط دخول / حساب، أنشئ حساب مطعم، ثم أضف أصناف وطلبات من لوحة التحكم.
