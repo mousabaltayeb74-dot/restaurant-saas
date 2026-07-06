@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Restaurant SaaS | نظام مطاعم سحابي</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Restaurant SaaS | منصة مطاعم سحابية</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -12,150 +12,135 @@
       <div class="logo">RS</div>
       <div>
         <h1>Restaurant SaaS</h1>
-        <p>نظام إدارة مطاعم سحابي متعدد المستخدمين</p>
+        <p>منصة مطاعم سحابية متعددة المستخدمين</p>
       </div>
     </div>
     <nav>
-      <button data-page="home">الرئيسية</button>
-      <button data-page="pricing">الخطط</button>
-      <button data-page="login" class="outline">دخول</button>
-      <button data-page="register" class="primary">إنشاء حساب مطعم</button>
+      <button data-view="home" class="nav-btn active">الرئيسية</button>
+      <button data-view="plans" class="nav-btn">الخطط</button>
+      <button data-view="auth" class="nav-btn auth-link">دخول / حساب</button>
+      <button id="logoutBtn" class="ghost hidden">خروج</button>
     </nav>
   </header>
 
   <main>
-    <section id="home" class="page active hero">
+    <section id="home" class="view hero show">
       <div class="hero-text">
         <span class="badge">Cloud SaaS Project</span>
         <h2>حوّل مطعمك إلى منصة طلبات أونلاين</h2>
-        <p>
-          تطبيق سحابي يسمح لكل مطعم بإنشاء حساب خاص، إدارة المنيو، استقبال الطلبات،
-          ومتابعة العملاء من لوحة تحكم واحدة.
-        </p>
+        <p>كل مطعم ينشئ حسابه الخاص، يدير المنيو والطلبات والعملاء من لوحة تحكم واحدة، مع حفظ البيانات على Firebase Cloud Firestore.</p>
         <div class="actions">
-          <button data-page="register" class="primary big">ابدأ الآن</button>
-          <button data-page="demo" class="outline big">تجربة لوحة التحكم</button>
+          <button data-view="auth" class="primary">ابدأ الآن</button>
+          <button data-view="demo" class="secondary">تجربة المنصة</button>
         </div>
       </div>
-      <div class="hero-card">
-        <h3>خصائص المشروع</h3>
+      <div class="card features">
+        <h3>مطابقة متطلبات الحوسبة السحابية</h3>
         <ul>
-          <li>✅ Software as a Service</li>
-          <li>✅ Multi-user / Multi-tenant</li>
-          <li>✅ Cloud Hosting + Firebase</li>
-          <li>✅ Dashboard لكل مطعم</li>
-          <li>✅ Menu + Orders + Subscription Plans</li>
+          <li>✅ Online application على GitHub Pages</li>
+          <li>✅ Firebase Authentication لتسجيل المستخدمين</li>
+          <li>✅ Cloud Firestore لحفظ البيانات سحابيًا</li>
+          <li>✅ Multi-tenant: كل مطعم له tenant خاص</li>
+          <li>✅ SaaS: خدمة مطاعم عبر الإنترنت</li>
         </ul>
       </div>
     </section>
 
-    <section id="pricing" class="page">
+    <section id="plans" class="view">
       <h2>خطط الاشتراك</h2>
-      <div class="cards">
-        <article class="price-card">
-          <h3>Free</h3><strong>$0</strong>
-          <p>مناسبة للتجربة</p>
-          <ul><li>10 أصناف</li><li>20 طلب شهريًا</li><li>رابط مطعم واحد</li></ul>
-        </article>
-        <article class="price-card featured">
-          <h3>Basic</h3><strong>$10</strong>
-          <p>للمطاعم الصغيرة</p>
-          <ul><li>100 صنف</li><li>طلبات غير محدودة</li><li>إدارة الطلبات</li></ul>
-        </article>
-        <article class="price-card">
-          <h3>Pro</h3><strong>$25</strong>
-          <p>للمطاعم الكبيرة</p>
-          <ul><li>فروع متعددة</li><li>تقارير</li><li>دعم أولوية</li></ul>
-        </article>
+      <div class="plans">
+        <div class="card plan"><h3>Free</h3><p class="price">0$</p><p>حتى 10 أصناف + استقبال طلبات تجريبية.</p></div>
+        <div class="card plan popular"><h3>Basic</h3><p class="price">10$</p><p>منيو كامل + طلبات + بيانات عملاء.</p></div>
+        <div class="card plan"><h3>Pro</h3><p class="price">25$</p><p>تقارير + دعم + رابط مطعم مخصص.</p></div>
       </div>
     </section>
 
-    <section id="register" class="page auth-card">
-      <h2>إنشاء حساب مطعم</h2>
-      <form id="registerForm">
-        <label>اسم صاحب المطعم</label>
-        <input id="ownerName" required placeholder="مثال: مصعب الطيب" />
-        <label>اسم المطعم / المؤسسة</label>
-        <input id="tenantName" required placeholder="مثال: Golden Bite" />
-        <label>البريد الإلكتروني</label>
-        <input id="registerEmail" type="email" required placeholder="example@email.com" />
-        <label>كلمة المرور</label>
-        <input id="registerPassword" type="password" required minlength="6" />
-        <label>الخطة</label>
-        <select id="plan"><option>Free</option><option>Basic</option><option>Pro</option></select>
-        <button class="primary" type="submit">إنشاء الحساب</button>
-      </form>
-      <p class="note">كل مطعم يتم حفظه كـ Tenant مستقل داخل Firebase Firestore.</p>
+    <section id="auth" class="view">
+      <h2>دخول / إنشاء حساب مطعم</h2>
+      <div class="auth-grid">
+        <form id="registerForm" class="card form-card">
+          <h3>إنشاء حساب مطعم</h3>
+          <input id="regRestaurant" placeholder="اسم المطعم / المؤسسة" required />
+          <input id="regOwner" placeholder="اسم المالك" required />
+          <input id="regEmail" type="email" placeholder="البريد الإلكتروني" required />
+          <input id="regPassword" type="password" placeholder="كلمة المرور" minlength="6" required />
+          <select id="regPlan">
+            <option value="Free">Free</option>
+            <option value="Basic">Basic</option>
+            <option value="Pro">Pro</option>
+          </select>
+          <button class="primary" type="submit">إنشاء الحساب</button>
+        </form>
+
+        <form id="loginForm" class="card form-card">
+          <h3>تسجيل الدخول</h3>
+          <input id="loginEmail" type="email" placeholder="البريد الإلكتروني" required />
+          <input id="loginPassword" type="password" placeholder="كلمة المرور" required />
+          <button class="secondary" type="submit">دخول</button>
+        </form>
+      </div>
     </section>
 
-    <section id="login" class="page auth-card">
-      <h2>تسجيل الدخول</h2>
-      <form id="loginForm">
-        <label>البريد الإلكتروني</label>
-        <input id="loginEmail" type="email" required />
-        <label>كلمة المرور</label>
-        <input id="loginPassword" type="password" required />
-        <button class="primary" type="submit">دخول</button>
-      </form>
-      <button id="demoBtn" class="outline full">دخول تجريبي</button>
+    <section id="dashboard" class="view">
+      <div class="dash-head">
+        <div>
+          <span class="badge">Dashboard</span>
+          <h2 id="tenantTitle">لوحة التحكم</h2>
+          <p id="tenantMeta">تحميل بيانات المطعم...</p>
+        </div>
+        <button id="copyPublicLink" class="secondary">نسخ رابط العملاء</button>
+      </div>
+
+      <div class="stats">
+        <div class="card stat"><b id="menuCount">0</b><span>أصناف المنيو</span></div>
+        <div class="card stat"><b id="ordersCount">0</b><span>الطلبات</span></div>
+        <div class="card stat"><b id="tenantPlan">Free</b><span>الخطة</span></div>
+      </div>
+
+      <div class="dashboard-grid">
+        <form id="menuForm" class="card form-card">
+          <h3>إضافة صنف للمنيو</h3>
+          <input id="itemName" placeholder="اسم الصنف" required />
+          <input id="itemPrice" type="number" placeholder="السعر" required />
+          <input id="itemCategory" placeholder="التصنيف: وجبات، مشروبات..." required />
+          <input id="itemImage" placeholder="رابط صورة اختياري" />
+          <textarea id="itemDesc" placeholder="وصف مختصر"></textarea>
+          <button class="primary" type="submit">حفظ الصنف</button>
+        </form>
+
+        <form id="orderForm" class="card form-card">
+          <h3>طلب تجريبي من العميل</h3>
+          <input id="customerName" placeholder="اسم العميل" required />
+          <input id="customerPhone" placeholder="رقم الهاتف" required />
+          <textarea id="orderItems" placeholder="تفاصيل الطلب" required></textarea>
+          <button class="secondary" type="submit">حفظ الطلب</button>
+        </form>
+      </div>
+
+      <div class="lists">
+        <div class="card"><h3>المنيو</h3><div id="menuList" class="list"></div></div>
+        <div class="card"><h3>الطلبات</h3><div id="ordersList" class="list"></div></div>
+      </div>
     </section>
 
-    <section id="demo" class="page dashboard">
-      <aside>
-        <h3 id="dashTenant">Golden Bite</h3>
-        <p id="dashOwner">صاحب الحساب: Demo Owner</p>
-        <button data-panel="overview">الرئيسية</button>
-        <button data-panel="menuPanel">إدارة المنيو</button>
-        <button data-panel="ordersPanel">الطلبات</button>
-        <button data-panel="subscriptionPanel">الاشتراك</button>
-        <button class="outline" onclick="logout()">تسجيل الخروج</button>
-      </aside>
-      <div class="dash-content">
-        <div id="overview" class="panel active">
-          <h2>لوحة التحكم</h2>
-          <div class="stats">
-            <div><span id="menuCount">3</span><p>أصناف المنيو</p></div>
-            <div><span id="ordersCount">2</span><p>الطلبات</p></div>
-            <div><span id="currentPlan">Free</span><p>الخطة الحالية</p></div>
-          </div>
-          <p class="explain">هذه اللوحة تمثل Tenant واحد. عند دخول مطعم آخر تظهر له بياناته الخاصة فقط.</p>
-        </div>
-
-        <div id="menuPanel" class="panel">
-          <h2>إدارة المنيو</h2>
-          <form id="menuForm" class="inline-form">
-            <input id="itemName" placeholder="اسم الصنف" required />
-            <input id="itemPrice" type="number" placeholder="السعر" required />
-            <input id="itemImage" placeholder="رابط الصورة" />
-            <button class="primary">إضافة</button>
-          </form>
-          <div id="menuList" class="list"></div>
-        </div>
-
-        <div id="ordersPanel" class="panel">
-          <h2>الطلبات</h2>
-          <form id="orderForm" class="inline-form">
-            <input id="customerName" placeholder="اسم العميل" required />
-            <input id="orderItems" placeholder="الطلب" required />
-            <button class="primary">إضافة طلب</button>
-          </form>
-          <div id="ordersList" class="list"></div>
-        </div>
-
-        <div id="subscriptionPanel" class="panel">
-          <h2>الاشتراك</h2>
-          <p>الخطة الحالية: <strong id="subPlan">Free</strong></p>
-          <button class="primary" onclick="upgradePlan('Basic')">ترقية إلى Basic</button>
-          <button class="outline" onclick="upgradePlan('Pro')">ترقية إلى Pro</button>
-        </div>
+    <section id="demo" class="view">
+      <h2>شرح فكرة الـ SaaS في المشروع</h2>
+      <div class="card explanation">
+        <p><b>Tenant</b> هنا هو المطعم. عند إنشاء حساب، يتم حفظ بيانات المطعم داخل:</p>
+        <code>restaurants / userId</code>
+        <p>وتحته يتم حفظ المنيو والطلبات:</p>
+        <code>restaurants / userId / menu</code><br>
+        <code>restaurants / userId / orders</code>
+        <p>بذلك كل مطعم يرى بياناته فقط، وهذا يحقق مفهوم <b>Multi-tenant SaaS</b>.</p>
       </div>
     </section>
   </main>
 
-  <footer>
-    <p>Restaurant SaaS Project — Cloud Computing Practical Project</p>
-  </footer>
+  <div id="toast" class="toast hidden"></div>
 
-  <script type="module" src="app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

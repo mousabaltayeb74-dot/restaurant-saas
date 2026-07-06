@@ -1,24 +1,40 @@
-# Restaurant SaaS - Firebase Version
+# Restaurant SaaS - Complete Firebase Version
 
-مشروع مطعم سحابي بصيغة SaaS يحقق فكرة الحوسبة السحابية:
+مشروع مطعم سحابي بصيغة SaaS يحقق متطلبات الحوسبة السحابية:
 
-- Online application على GitHub Pages
-- Firebase Authentication لتسجيل الدخول وإنشاء الحسابات
-- Cloud Firestore لحفظ بيانات المطاعم والطلبات
-- Multi-tenant: كل مستخدم/مطعم له بيانات منفصلة تحت tenants/{uid}
-- Dashboard لإدارة المنيو والطلبات والاشتراك
+- Online application hosted on GitHub Pages
+- Firebase Authentication لإنشاء حسابات وتسجيل دخول
+- Cloud Firestore لتخزين بيانات المطاعم والطلبات والمنيو
+- Multi-tenant: كل مستخدم/مطعم له مستند مستقل بالمسار `restaurants/{uid}`
+- Dashboard لإدارة المنيو والطلبات
 
-## الملفات
+## Firebase المستخدم
+
+Project ID: `restaurant-saas-c894e`
+
+## طريقة الرفع
+
+ارفع الملفات التالية إلى مستودع GitHub Pages بدل الملفات القديمة:
 
 - index.html
 - styles.css
 - app.js
+- README.md
 
-## Firebase المستخدم
+ثم افتح الرابط:
 
-تم ربط المشروع بمشروع Firebase:
-restaurant-saas-c894e
+https://mousabaltayeb74-dot.github.io/restaurant-saas/
 
-## طريقة الرفع
+## طريقة الاختبار
 
-ارفع الملفات الثلاثة إلى مستودع GitHub Pages بدل الملفات القديمة، ثم افتح الموقع وجرب إنشاء حساب جديد.
+1. افتح الموقع.
+2. اضغط دخول / حساب.
+3. أنشئ حساب مطعم جديد.
+4. أدخل إلى لوحة التحكم.
+5. أضف صنفًا للمنيو.
+6. أضف طلبًا تجريبيًا.
+7. افتح Firebase > Firestore وستجد البيانات داخل:
+
+`restaurants / uid / menu`
+
+`restaurants / uid / orders`
