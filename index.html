@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restaurant SaaS | نظام مطاعم سحابي</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">RS</div>
+      <div>
+        <h1>Restaurant SaaS</h1>
+        <p>نظام إدارة مطاعم سحابي متعدد المستخدمين</p>
+      </div>
+    </div>
+    <nav>
+      <button data-page="home">الرئيسية</button>
+      <button data-page="pricing">الخطط</button>
+      <button data-page="login" class="outline">دخول</button>
+      <button data-page="register" class="primary">إنشاء حساب مطعم</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="page active hero">
+      <div class="hero-text">
+        <span class="badge">Cloud SaaS Project</span>
+        <h2>حوّل مطعمك إلى منصة طلبات أونلاين</h2>
+        <p>
+          تطبيق سحابي يسمح لكل مطعم بإنشاء حساب خاص، إدارة المنيو، استقبال الطلبات،
+          ومتابعة العملاء من لوحة تحكم واحدة.
+        </p>
+        <div class="actions">
+          <button data-page="register" class="primary big">ابدأ الآن</button>
+          <button data-page="demo" class="outline big">تجربة لوحة التحكم</button>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h3>خصائص المشروع</h3>
+        <ul>
+          <li>✅ Software as a Service</li>
+          <li>✅ Multi-user / Multi-tenant</li>
+          <li>✅ Cloud Hosting Ready</li>
+          <li>✅ Dashboard لكل مطعم</li>
+          <li>✅ Menu + Orders + Subscription Plans</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="pricing" class="page">
+      <h2>خطط الاشتراك</h2>
+      <div class="cards">
+        <article class="price-card">
+          <h3>Free</h3><strong>$0</strong>
+          <p>مناسبة للتجربة</p>
+          <ul><li>10 أصناف</li><li>20 طلب شهريًا</li><li>رابط مطعم واحد</li></ul>
+        </article>
+        <article class="price-card featured">
+          <h3>Basic</h3><strong>$10</strong>
+          <p>للمطاعم الصغيرة</p>
+          <ul><li>100 صنف</li><li>طلبات غير محدودة</li><li>إدارة الطلبات</li></ul>
+        </article>
+        <article class="price-card">
+          <h3>Pro</h3><strong>$25</strong>
+          <p>للمطاعم الكبيرة</p>
+          <ul><li>فروع متعددة</li><li>تقارير</li><li>دعم أولوية</li></ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="register" class="page auth-card">
+      <h2>إنشاء حساب مطعم</h2>
+      <form id="registerForm">
+        <label>اسم صاحب المطعم</label>
+        <input id="ownerName" required placeholder="مثال: مصعب الطيب" />
+        <label>اسم المطعم / المؤسسة</label>
+        <input id="tenantName" required placeholder="مثال: Golden Bite" />
+        <label>البريد الإلكتروني</label>
+        <input id="registerEmail" type="email" required placeholder="example@email.com" />
+        <label>كلمة المرور</label>
+        <input id="registerPassword" type="password" required minlength="6" />
+        <label>الخطة</label>
+        <select id="plan"><option>Free</option><option>Basic</option><option>Pro</option></select>
+        <button class="primary" type="submit">إنشاء الحساب</button>
+      </form>
+      <p class="note">كل مطعم يتم حفظه كـ Tenant مستقل وله بياناته الخاصة.</p>
+    </section>
+
+    <section id="login" class="page auth-card">
+      <h2>تسجيل الدخول</h2>
+      <form id="loginForm">
+        <label>البريد الإلكتروني</label>
+        <input id="loginEmail" type="email" required />
+        <label>كلمة المرور</label>
+        <input id="loginPassword" type="password" required />
+        <button class="primary" type="submit">دخول</button>
+      </form>
+      <button id="demoBtn" class="outline full">دخول تجريبي</button>
+    </section>
+
+    <section id="demo" class="page dashboard">
+      <aside>
+        <h3 id="dashTenant">Golden Bite</h3>
+        <p id="dashOwner">صاحب الحساب: Demo Owner</p>
+        <button data-panel="overview">الرئيسية</button>
+        <button data-panel="menuPanel">إدارة المنيو</button>
+        <button data-panel="ordersPanel">الطلبات</button>
+        <button data-panel="subscriptionPanel">الاشتراك</button>
+      </aside>
+      <div class="dash-content">
+        <div id="overview" class="panel active">
+          <h2>لوحة التحكم</h2>
+          <div class="stats">
+            <div><span id="menuCount">3</span><p>أصناف المنيو</p></div>
+            <div><span id="ordersCount">2</span><p>الطلبات</p></div>
+            <div><span id="currentPlan">Free</span><p>الخطة الحالية</p></div>
+          </div>
+          <p class="explain">هذه اللوحة تمثل Tenant واحد. عند دخول مطعم آخر تظهر له بياناته الخاصة فقط.</p>
+        </div>
+
+        <div id="menuPanel" class="panel">
+          <h2>إدارة المنيو</h2>
+          <form id="menuForm" class="inline-form">
+            <input id="itemName" placeholder="اسم الصنف" required />
+            <input id="itemPrice" type="number" placeholder="السعر" required />
+            <input id="itemImage" placeholder="رابط الصورة" />
+            <button class="primary">إضافة</button>
+          </form>
+          <div id="menuList" class="list"></div>
+        </div>
+
+        <div id="ordersPanel" class="panel">
+          <h2>الطلبات</h2>
+          <form id="orderForm" class="inline-form">
+            <input id="customerName" placeholder="اسم العميل" required />
+            <input id="orderItems" placeholder="الطلب" required />
+            <button class="primary">إضافة طلب</button>
+          </form>
+          <div id="ordersList" class="list"></div>
+        </div>
+
+        <div id="subscriptionPanel" class="panel">
+          <h2>الاشتراك</h2>
+          <p>الخطة الحالية: <strong id="subPlan">Free</strong></p>
+          <button class="primary" onclick="upgradePlan('Basic')">ترقية إلى Basic</button>
+          <button class="outline" onclick="upgradePlan('Pro')">ترقية إلى Pro</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Restaurant SaaS Project — Cloud Computing Practical Project</p>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
