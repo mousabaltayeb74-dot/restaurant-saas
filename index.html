@@ -42,7 +42,7 @@
         <ul>
           <li>✅ Software as a Service</li>
           <li>✅ Multi-user / Multi-tenant</li>
-          <li>✅ Cloud Hosting Ready</li>
+          <li>✅ Cloud Hosting + Firebase</li>
           <li>✅ Dashboard لكل مطعم</li>
           <li>✅ Menu + Orders + Subscription Plans</li>
         </ul>
@@ -85,7 +85,7 @@
         <select id="plan"><option>Free</option><option>Basic</option><option>Pro</option></select>
         <button class="primary" type="submit">إنشاء الحساب</button>
       </form>
-      <p class="note">كل مطعم يتم حفظه كـ Tenant مستقل وله بياناته الخاصة.</p>
+      <p class="note">كل مطعم يتم حفظه كـ Tenant مستقل داخل Firebase Firestore.</p>
     </section>
 
     <section id="login" class="page auth-card">
@@ -108,6 +108,7 @@
         <button data-panel="menuPanel">إدارة المنيو</button>
         <button data-panel="ordersPanel">الطلبات</button>
         <button data-panel="subscriptionPanel">الاشتراك</button>
+        <button class="outline" onclick="logout()">تسجيل الخروج</button>
       </aside>
       <div class="dash-content">
         <div id="overview" class="panel active">
